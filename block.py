@@ -26,8 +26,7 @@ class Block(Item):
     pass
 
     def __init__(self, x, y) -> None:
-        super().__init__(x, y)
-        self.icon = "🌴"
+        pass
 
 
 if __name__ == "__main__":
