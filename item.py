@@ -48,7 +48,6 @@ class Item:
         self.next_y = y
         self.status = True
         self.icon = ""
-        pass
 
     def get_next_pos(self) -> tuple[int, int]:
         """
