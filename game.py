@@ -32,10 +32,10 @@ class Game:
         Args:
             params (Parameters): configのパラメータのインスタンス
         """
-        self.players = []
-        self.enemies = []
-        self.foods = []
-        self.blocks = []
+        self.players: list[Player] = []
+        self.enemies: list[Enemy] = []
+        self.foods: list[Food] = []
+        self.blocks: list[Block] = []
         self.field = None
         self.setup(params)  # ゲームの初期設定
         self.start()  # ゲームのメインループ
