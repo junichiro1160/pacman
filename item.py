@@ -49,7 +49,7 @@ class Item:
         self.status = True
         self.icon = ""
 
-    def get_next_pos(self) -> tuple[int, int]:
+    def get_next_pos(self, *args, **kargs) -> tuple[int, int]:
         """
         次の時刻の座標を取得するメソッド
         デフォルトでは現在の座標を返すため、子クラスでオーバーライドすることを設定している.
