@@ -80,7 +80,7 @@ class Field:
         # fieldを一旦すべて空白にする
         for i in range(len(self.field)):
             for j in range(len(self.field[i])):
-                self.field[i][j] = " "
+                self.field[i][j] = "　"
         # Fieldを更新する処理を記述
         for food in self.foods:
             if food.status:
