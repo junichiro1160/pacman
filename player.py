@@ -45,6 +45,7 @@ class Player(Item):
         """
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
+        self.add_score(100)
         return (self.next_x, self.next_y)
 
     def change_face_good(self) -> None:
