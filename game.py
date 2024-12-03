@@ -32,6 +32,7 @@ class Game:
         Args:
             params (Parameters): configのパラメータのインスタンス
         """
+        self.score = 0  # スコアを初期化
         self.players: list[Player] = []
         self.enemies: list[Enemy] = []
         self.foods: list[Food] = []
@@ -112,17 +113,20 @@ class Game:
             for player in self.players:
                 # 敵との衝突判定
                 if self.field.check_bump(player, list(self.enemies)):
+                    self.score -= 1000  # 敵と衝突で100点down
                     player.change_face_bad()
                     self.field.update_field()
                     os.system("cls" if os.name == "nt" else "clear")
                     # ターミナルをクリア
                     self.field.display_field()
                     logger.info("Game Over!")
+                    logger.info("Score: {self.score}")
                     return "Game Over!"
 
             # 食べ物との衝突判定
             bumped_item = self.field.check_bump(player, list(self.foods))
             if bumped_item is not None:
+                self.score += 500   # ラーメン食べて500点up
                 bumped_item.status = False
                 if all([not food.status for food in self.foods]):
                     player.change_face_good()
@@ -131,6 +135,7 @@ class Game:
                     # ターミナルをクリア
                     self.field.display_field()
                     logger.info("Game Clear!")
+                    logger.info("Score: {self.score}")
                     return "Game Clear!"
 
             # fieldを更新
