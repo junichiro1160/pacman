@@ -19,6 +19,7 @@ class Player(Item):
     def __init__(self, x, y) -> None:
         super().__init__(x, y)
         self.icon = "😶"
+        self.score = 0
 
     def get_next_pos(self, dir: tuple[int, int]) -> tuple[int, int]:
         """
@@ -44,6 +45,7 @@ class Player(Item):
         """
         self.next_x = self.now_x + dir[0]
         self.next_y = self.now_y + dir[1]
+        self.add_score(100)
         return (self.next_x, self.next_y)
 
     def change_face_good(self) -> None:
@@ -75,6 +77,12 @@ class Player(Item):
             '😭'
         """
         self.icon = "😭"
+
+    def add_score(self, points: int) -> None:
+        self.score = points
+
+    def get_score(self) -> int:
+        return self.score
 
 
 if __name__ == "__main__":
