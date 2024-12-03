@@ -37,7 +37,7 @@ class Game:
         self.enemies: list[Enemy] = []
         self.foods: list[Food] = []
         self.blocks: list[Block] = []
-        self.field = None
+        self.field = Field([], [], [], [], 0)
         self.setup(params)  # ゲームの初期設定
         self.start()  # ゲームのメインループ
 

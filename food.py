@@ -22,15 +22,15 @@ class Food(Item):
         '🍜'
         >>> food.status
         True
+        >>> isinstance(food, Item)
+        True
     """
 
-    pass
-
     def __init__(self, x, y) -> None:
-        pass
+        super().__init__(x, y)
+        self.icon = "🍜"
 
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    pass
